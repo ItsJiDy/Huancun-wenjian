@@ -1,0 +1,513 @@
+return (function(K, m, S, x, b, z, h, N, T, p, g, Q, j, G)
+	local O;
+	local function W(K, m, S, x)
+		return ((x + S * 256) + m * 65536) + K * 16777216;
+	end;
+	local function v(m, S)
+		local N = b;
+		local T = x;
+		local p = N(m, S);
+		S += 1;
+		if p == 0 then
+			local K = W(N(m, S, S + 3));
+			S += 4;
+			local x = T(m, S, S + K);
+			local b = "";
+			local z = 1;
+			while K >= z do
+				local m = T(x, z, z);
+				if K == z then
+					b ..= m;
+					break;
+				end;
+				local S = z + 3;
+				b ..= T(x, S, S) .. m;
+				z += 4;
+			end;
+			b = h(b);
+			return b, S + K;
+		elseif p == 1 then
+			local K = N(m, S) == 0;
+			S += 1;
+			local x = W(N(m, S, S + 3));
+			if K then
+				x *= -1;
+			end;
+			return x, S + 4;
+		elseif p == 3 then
+			local K = N(m, S);
+			return K == 0, S + 1;
+		elseif p == 6 then
+			return 2e1024, S;
+		elseif p == 2 then
+			local K, x = O(m, S);
+			return K, x + 1;
+		elseif p == 7 then
+			local x = N(m, S);
+			local b = "";
+			for K = 1, x, 1 do
+				b ..= z(N(m, S + K) / 2);
+			end;
+			return K(h(b)), (S + x) + 1;
+		end;
+	end;
+	O = function(K, m)
+			local S = b;
+			local x = v;
+			local z = {};
+			local h = #K;
+			m = m or 1;
+			while m <= h do
+				if S(K, m) == 5 then
+					break;
+				end;
+				local b, h = x(K, m);
+				local N, T = x(K, h);
+				z[b] = N;
+				m = T;
+			end;
+			return z, m;
+		end;
+	local function I(K, x, b)
+		local z = g;
+		local h = p;
+		local N = m;
+		local T = S;
+		local Q = j;
+		local G = K[1];
+		local O = K[2];
+		local function W(K, m, S)
+			local b = z;
+			local p = G;
+			local g = W;
+			local j = x;
+			local O = N;
+			local v = h;
+			local I = Q;
+			local i = T;
+			local J = K[2];
+			local E = K[4];
+			if E == 1 and #J == 2 then
+				local K = J[1];
+				local m = J[2];
+				if K[1] == 6 and (m[1] == 22 and m[3] == 2) then
+					return function(K)
+						return K;
+					end;
+				end;
+			end;
+			return function(...)
+				local x = O;
+				local z = b;
+				local h = g;
+				local N = p;
+				local T = v;
+				local Q = K;
+				local G = i;
+				local W = I;
+				local d = j;
+				local R = m;
+				local A = S;
+				local t = J;
+				local V = E;
+				local o = Q[1];
+				local M = Q[3];
+				local C = Q[5];
+				local U = Q[6];
+				local c = { ... };
+				local Y = {};
+				local s = {};
+				local Z = 1;
+				local y = 0;
+				local D, e;
+				d(c, 1, V, 0, Y);
+				if U then
+					local K = V + 1;
+					local m = #c - V;
+					D = m;
+					e = {};
+					d(c, K, (K + m) - 1, 1, e);
+				end;
+				local L, X;
+				while true do
+					L = t[Z];
+					X = L[1];
+					Z += 1;
+					if X == 2 then
+						Y[L[2]] = nil;
+					elseif X == 3 then
+						Y[L[2]] = L[3] == 1;
+						Z += L[4];
+					elseif X == 4 then
+						Y[L[2]] = L[5];
+					elseif X == 5 then
+						Y[L[2]] = L[7];
+					elseif X == 6 then
+						Y[L[2]] = Y[L[3]];
+					elseif X == 7 then
+						Y[L[2]] = A[L[X]];
+						Z += 1;
+					elseif X == 8 then
+						A[L[7]] = Y[L[2]];
+						Z += 1;
+					elseif X == 9 then
+						local K = R[L[3] + 1];
+						Y[L[2]] = K[1][K[2]];
+					elseif X == 10 then
+						local K = R[L[3] + 1];
+						K[1][K[2]] = Y[L[2]];
+					elseif X == 11 then
+						local K = L[2];
+						for m, S in s do
+							local x = S[2];
+							if x >= K then
+								S[3] = S[1][x];
+								S[1] = S;
+								S[2] = 3;
+								s[m] = nil;
+							end;
+						end;
+					elseif X == 12 then
+						local K = L[9];
+						if K == 1 then
+							Y[L[2]] = A[L[8]];
+						elseif K == 2 then
+							Y[L[2]] = A[L[8]][L[10]];
+						elseif K == 3 then
+							Y[L[2]] = A[L[8]][L[10]][L[11]];
+						end;
+						Z += 1;
+					elseif X == 13 then
+						Y[L[2]] = Y[L[3]][Y[L[4]]];
+					elseif X == 14 then
+						Y[L[3]][Y[L[4]]] = Y[L[2]];
+					elseif X == 15 then
+						Y[L[2]] = Y[L[3]][L[7]];
+						Z += 1;
+					elseif X == 16 then
+						Y[L[3]][L[7]] = Y[L[2]];
+						Z += 1;
+					elseif X == 17 then
+						Y[L[2]] = Y[L[3]][L[4] + 1];
+					elseif X == 18 then
+						Y[L[3]][L[4] + 1] = Y[L[2]];
+					elseif X == 19 then
+						local K = N[o[L[5] + 1]];
+						local m = {};
+						Y[L[2]] = h(K, m, A);
+						for K = 1, K[5], 1 do
+							local S = t[Z];
+							Z += 1;
+							local x = S[2];
+							if x == 0 then
+								local b = { x, 3, Y[S[3]] };
+								b[1] = b;
+								m[K] = b;
+							elseif x == 1 then
+								local x = S[3];
+								local b = s[x];
+								if b == nil then
+									b = { Y, x };
+									s[x] = b;
+								end;
+								m[K] = b;
+							elseif x == 2 then
+								m[K] = R[S[3] + 1];
+							end;
+						end;
+					elseif X == 20 then
+						local K = Y[L[3]];
+						local m = L[2];
+						Y[m + 1] = K;
+						Y[m] = K[L[7]];
+						Z += 1;
+					elseif X == 21 then
+						local K, m, S = L[2], L[3], L[4];
+						local x = if m == 0 then y - K else m - 1;
+						local b = Y[K];
+						local h;
+						if x == 0 then
+							h = { b() };
+						elseif x == 1 then
+							h = { b(Y[K + 1]) };
+						elseif x == 2 then
+							h = { b(Y[K + 1], Y[K + 2]) };
+						elseif x == 3 then
+							h = { b(Y[K + 1], Y[K + 2], Y[K + 3]) };
+						elseif x == 4 then
+							h = { b(Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4]) };
+						else
+							h = { b(z(Y, K + 1, K + x)) };
+						end;
+						local N = #h;
+						if S == 0 then
+							y = (K + N) - 1;
+						else
+							N = S - 1;
+						end;
+						d(h, 1, N, K, Y);
+					elseif X == 22 then
+						local K = L[2];
+						local m = L[3];
+						local S = m - 2;
+						local x;
+						if S == -2 then
+							x = y - K;
+						else
+							x = S;
+						end;
+						if x == -1 then
+							return;
+						elseif x == 0 then
+							return Y[K];
+						elseif x == 1 then
+							return Y[K], Y[K + 1];
+						elseif x == 2 then
+							return Y[K], Y[K + 1], Y[K + 2];
+						end;
+						return z(Y, K, K + x);
+					elseif X == 23 then
+						Z += L[5];
+					elseif X == 25 then
+						if Y[L[2]] then
+							Z += L[5];
+						end;
+					elseif X == 26 then
+						if not Y[L[2]] then
+							Z += L[5];
+						end;
+					elseif X == 27 then
+						if Y[L[2]] == Y[L[13]] then
+							Z += L[5];
+						else
+							Z += 1;
+						end;
+					elseif X == 28 then
+						if Y[L[2]] <= Y[L[13]] then
+							Z += L[5];
+						else
+							Z += 1;
+						end;
+					elseif X == 29 then
+						if Y[L[2]] < Y[L[13]] then
+							Z += L[5];
+						else
+							Z += 1;
+						end;
+					elseif X == 30 then
+						if Y[L[2]] == Y[L[13]] then
+							Z += 1;
+						else
+							Z += L[5];
+						end;
+					elseif X == 31 then
+						if Y[L[2]] <= Y[L[13]] then
+							Z += 1;
+						else
+							Z += L[5];
+						end;
+					elseif X == 32 then
+						if Y[L[2]] < Y[L[13]] then
+							Z += 1;
+						else
+							Z += L[5];
+						end;
+					elseif X == 33 then
+						Y[L[2]] = Y[L[3]] + Y[L[4]];
+					elseif X == 34 then
+						Y[L[2]] = Y[L[3]] - Y[L[4]];
+					elseif X == 35 then
+						Y[L[2]] = Y[L[3]] * Y[L[4]];
+					elseif X == 36 then
+						Y[L[2]] = Y[L[3]] / Y[L[4]];
+					elseif X == 37 then
+						Y[L[2]] = Y[L[3]] % Y[L[4]];
+					elseif X == 38 then
+						Y[L[2]] = Y[L[3]] ^ Y[L[4]];
+					elseif X == 39 then
+						Y[L[2]] = Y[L[3]] + L[7];
+					elseif X == 40 then
+						Y[L[2]] = Y[L[3]] - L[7];
+					elseif X == 41 then
+						Y[L[2]] = Y[L[3]] * L[7];
+					elseif X == 42 then
+						Y[L[2]] = Y[L[3]] / L[7];
+					elseif X == 43 then
+						Y[L[2]] = Y[L[3]] % L[7];
+					elseif X == 44 then
+						Y[L[2]] = Y[L[3]] ^ L[7];
+					elseif X == 45 then
+						local K = Y[L[3]];
+						Y[L[2]] = if K then Y[L[4]] or false else K;
+					elseif X == 46 then
+						local K = Y[L[3]];
+						Y[L[2]] = if K then K else Y[L[4]] or false;
+					elseif X == 47 then
+						local K = Y[L[3]];
+						Y[L[2]] = if K then L[7] or false else K;
+					elseif X == 48 then
+						local K = Y[L[3]];
+						Y[L[2]] = if K then K else L[7] or false;
+					elseif X == 49 then
+						Y[L[2]] = T(Y, "", L[3], L[4]);
+					elseif X == 50 then
+						Y[L[2]] = not Y[L[3]];
+					elseif X == 51 then
+						Y[L[2]] = -Y[L[3]];
+					elseif X == 52 then
+						Y[L[2]] = #Y[L[3]];
+					elseif X == 53 then
+						Y[L[2]] = {};
+						Z += 1;
+					elseif X == 54 then
+						local K = L[7];
+						local m = {};
+						for K, S in K do
+							m[M[S + 1]] = nil;
+						end;
+						Y[L[2]] = m;
+					elseif X == 55 then
+						local K = L[2];
+						local m = L[3];
+						local S = L[4] - 1;
+						if S == -1 then
+							S = (y - m) + 1;
+						end;
+						d(Y, m, (m + S) - 1, L[13], Y[K]);
+						Z += 1;
+					elseif X == 56 then
+						local K = L[2];
+						local m = Y[K];
+						local S = Y[K + 1];
+						local x = Y[K + 2];
+						if S > 0 then
+							if x > m then
+								Z += L[5];
+							end;
+						else
+							if m > x then
+								Z += L[5];
+							end;
+						end;
+					elseif X == 57 then
+						local K = L[2];
+						local m = Y[K];
+						local S = Y[K + 1];
+						local x = Y[K + 2] + S;
+						Y[K + 2] = x;
+						if S > 0 then
+							if x <= m then
+								Z += L[5];
+							end;
+						else
+							if m <= x then
+								Z += L[5];
+							end;
+						end;
+					elseif X == 58 then
+						local K = L[2];
+						local m = L[7];
+						y = K + 6;
+						local S = Y[K];
+						if x(S) == W then
+							local S = { Y[K](Y[K + 1], Y[K + 2]) };
+							d(S, 1, m, K + 3, Y);
+							if Y[K + 3] ~= nil then
+								Y[K + 2] = Y[K + 3];
+								Z += L[5];
+							else
+								Z += 1;
+							end;
+						else
+							local x = { G(S, Y[K + 1]) };
+							d(x, 1, m, K + 3, Y);
+							if Y[K + 3] ~= nil then
+								Y[K + 1] = Y[K + 3];
+								Z += L[5];
+							else
+								Z += 1;
+							end;
+						end;
+					elseif X == 60 then
+						Z += 1;
+					elseif X == 63 then
+						local K = L[2];
+						local m = L[3] - 1;
+						if m == -1 then
+							m = D;
+							y = (K + m) - 1;
+						end;
+						d(e, 1, m, K, Y);
+					elseif X == 64 then
+						local K = N[o[L[5] + 1]];
+						local m = {};
+						Y[L[2]] = h(K, m, A);
+						for K = 1, K[5], 1 do
+							local S = t[Z];
+							Z += 1;
+							local x = S[2];
+							if x == 0 then
+								local b = { x, 3, Y[S[3]] };
+								b[1] = b;
+								m[K] = b;
+							elseif x == 2 then
+								m[K] = R[S[3] + 1];
+							end;
+						end;
+					elseif X == 66 then
+						Y[L[2]] = L[7];
+						Z += 1;
+					elseif X == 67 then
+						Z += L[6];
+					elseif X == 69 then
+						L[6] += 1;
+					elseif X == 70 then
+						return;
+					elseif X == 71 then
+						Y[L[2]] = L[7] - Y[L[4]];
+					elseif X == 72 then
+						Y[L[2]] = L[7] / Y[L[4]];
+					elseif X == 76 then
+						Z += L[5];
+					elseif X == 77 then
+						local K = L[12];
+						if (Y[L[2]] == nil) ~= K then
+							Z += L[5];
+						else
+							Z += 1;
+						end;
+					elseif X == 78 then
+						local K = L[7];
+						local m = L[12];
+						local S = Y[L[2]];
+						if (S == K) ~= m then
+							Z += L[5];
+						else
+							Z += 1;
+						end;
+					elseif X == 79 then
+						local K = L[7];
+						local m = L[12];
+						local S = Y[L[2]];
+						if (S == K) ~= m then
+							Z += L[5];
+						else
+							Z += 1;
+						end;
+					elseif X == 80 then
+						local K = L[7];
+						local m = L[12];
+						local S = Y[L[2]];
+						if (S == K) ~= m then
+							Z += L[5];
+						else
+							Z += 1;
+						end;
+					end;
+				end;
+			end;
+		end;
+		return W(O, nil, b);
+	end;
+	return I(O(G), T, Q())
+end)
