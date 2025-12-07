@@ -249,20 +249,20 @@ return (function(K, m, S, x, b, z, h, N, T, p, g, Q, j, G)
 						end;
 						if N == 1 then
 						    Y[K] = h[N];
-						    continue
+						    continue;
 						elseif N == 2 then
 						    Y[K], Y[K + 1] = h[1], h[N];
-						    continue
+						    continue;
 						elseif N == 3 then
 						    Y[K], Y[K + 1], Y[K + 2] = h[1], h[2], h[N];
-						    continue
+						    continue;
 						elseif N == 4 then
 						    Y[K], Y[K + 1], Y[K + 2], Y[K + 3] = h[1], h[2], h[3], h[N];
-						    continue
+						    continue;
 						elseif N == 5 then
 						    Y[K], Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4] = h[1], h[2], h[3], h[4], h[N];
-						    continue
-						end
+						    continue;
+						end;
 						d(h, 1, N, K, Y);
 					elseif X == 22 then
 						local K = L[2];
@@ -374,24 +374,24 @@ return (function(K, m, S, x, b, z, h, N, T, p, g, Q, j, G)
 						Y[L[2]] = if K then K else L[7] or false;
 					elseif X == 49 then
 					    local K, m = L[3], L[4];
-					    local S = m - K
+					    local S = m - K;
 					    if S == 1 then
-					        Y[L[2]] = Y[K] .. Y[m]
-					        continue
+					        Y[L[2]] = Y[K] .. Y[m];
+					        continue;
 					    elseif S == 2 then
-					        Y[L[2]] = Y[K] .. Y[K + 1] .. Y[m]
-					        continue
+					        Y[L[2]] = Y[K] .. Y[K + 1] .. Y[m];
+					        continue;
 					    elseif S == 3 then
-					        Y[L[2]] = Y[K] .. Y[K + 1] .. Y[K + 2] .. Y[m]
-					        continue
+					        Y[L[2]] = Y[K] .. Y[K + 1] .. Y[K + 2] .. Y[m];
+					        continue;
 					    elseif S == 4 then
-					        Y[L[2]] = Y[K] .. Y[K + 1] .. Y[K + 2] .. Y[K + 3] .. Y[m]
-					        continue
+					        Y[L[2]] = Y[K] .. Y[K + 1] .. Y[K + 2] .. Y[K + 3] .. Y[m];
+					        continue;
 					    elseif S == 5 then
-					        Y[L[2]] = Y[K] .. Y[K + 1] .. Y[K + 2] .. Y[K + 3] .. Y[K + 4] .. Y[m]
-					        continue
-					    end
-						Y[L[2]] = T(Y, "", L[3], L[4]);
+					        Y[L[2]] = Y[K] .. Y[K + 1] .. Y[K + 2] .. Y[K + 3] .. Y[K + 4] .. Y[m];
+					        continue;
+					    end;
+						Y[L[2]] = T(Y, "", K, m);
 					elseif X == 50 then
 						Y[L[2]] = not Y[L[3]];
 					elseif X == 51 then
