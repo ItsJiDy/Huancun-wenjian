@@ -373,7 +373,7 @@ return (function(K, m, S, x, b, z, h, N, T, p, g, Q, j, G)
 						local K = Y[L[3]];
 						Y[L[2]] = if K then K else L[7] or false;
 					elseif X == 49 then
-					    local K, m = L[2], L[3];
+					    local K, m = L[3], L[4];
 					    local S = m - K
 					    if S == 1 then
 					        Y[L[2]] = Y[K] .. Y[m]
