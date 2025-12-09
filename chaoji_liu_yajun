@@ -227,17 +227,45 @@ return (function(K, m, S, x, b, z, h, N, T, p, g, Q, j, G)
 						local b = Y[K];
 						local h;
 						if x == 0 then
-							h = { b() };
+						    if S == 1 then
+						        b();
+						        continue;
+						    else
+							    h = { b() };
+							end;
 						elseif x == 1 then
-							h = { b(Y[K + 1]) };
+						    if S == 1 then
+							    b(Y[K + 1]);
+							    continue;
+							else
+						    	h = { b(Y[K + 1]) };
+							end;
 						elseif x == 2 then
-							h = { b(Y[K + 1], Y[K + 2]) };
+							if S == 1 then
+							    b(Y[K + 1], Y[K + 2]);
+							    continue;
+							else
+							    h = { b(Y[K + 1], Y[K + 2]) };
+							end;
 						elseif x == 3 then
-							h = { b(Y[K + 1], Y[K + 2], Y[K + 3]) };
+						    if S == 1 then
+							    b(Y[K + 1], Y[K + 2], Y[K + 3]);
+							    continue;
+							else
+							    h = { b(Y[K + 1], Y[K + 2], Y[K + 3]) };
+							end;
 						elseif x == 4 then
-							h = { b(Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4]) };
+						    if S == 1 then
+							    b(Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4]);
+							else
+						    	h = { b(Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4]) };
+							end;
 						elseif x == 5 then
-							h = { b(Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4], Y[K + 5]) };
+						    if S == 1 then
+							    b(Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4], Y[K + 5]);
+							else
+						    	h = { b(Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4], Y[K + 5]) };
+							end
 						else
 							h = { b(z(Y, K + 1, K + x)) };
 						end;
@@ -245,21 +273,21 @@ return (function(K, m, S, x, b, z, h, N, T, p, g, Q, j, G)
 						if S == 0 then
 							y = (K + N) - 1;
 						else
-							N = S - 1;
+							N = S;
 						end;
-						if N == 1 then
+						if N == 2 then
 						    Y[K] = h[N];
 						    continue;
-						elseif N == 2 then
+						elseif N == 3 then
 						    Y[K], Y[K + 1] = h[1], h[N];
 						    continue;
-						elseif N == 3 then
+						elseif N == 4 then
 						    Y[K], Y[K + 1], Y[K + 2] = h[1], h[2], h[N];
 						    continue;
-						elseif N == 4 then
+						elseif N == 5 then
 						    Y[K], Y[K + 1], Y[K + 2], Y[K + 3] = h[1], h[2], h[3], h[N];
 						    continue;
-						elseif N == 5 then
+						elseif N == 6 then
 						    Y[K], Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4] = h[1], h[2], h[3], h[4], h[N];
 						    continue;
 						end;
