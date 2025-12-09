@@ -267,9 +267,14 @@ return (function(K, m, S, x, b, z, h, N, T, p, g, Q, j, G)
 							    continue;
 							else
 						    	h = { b(Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4], Y[K + 5]) };
-							end
+							end;
 						else
-							h = { b(z(Y, K + 1, K + x)) };
+						    if S == 1 then
+						        b(z(Y, K + 1, K + x));
+						        continue;
+						    else
+						    	h = { b(z(Y, K + 1, K + x)) };
+							end;
 						end;
 						local N = #h;
 						if S == 0 then
