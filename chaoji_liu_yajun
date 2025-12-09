@@ -257,12 +257,14 @@ return (function(K, m, S, x, b, z, h, N, T, p, g, Q, j, G)
 						elseif x == 4 then
 						    if S == 1 then
 							    b(Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4]);
+							    continue;
 							else
 						    	h = { b(Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4]) };
 							end;
 						elseif x == 5 then
 						    if S == 1 then
 							    b(Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4], Y[K + 5]);
+							    continue;
 							else
 						    	h = { b(Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4], Y[K + 5]) };
 							end
