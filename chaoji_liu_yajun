@@ -275,21 +275,21 @@ return (function(K, m, S, x, b, z, h, N, T, p, g, Q, j, G)
 						if S == 0 then
 							y = (K + N) - 1;
 						else
-							N = S;
+							N = S - 1;
 						end;
-						if N == 2 then
+						if N == 1 then
 						    Y[K] = h[N];
 						    continue;
-						elseif N == 3 then
+						elseif N == 2 then
 						    Y[K], Y[K + 1] = h[1], h[N];
 						    continue;
-						elseif N == 4 then
+						elseif N == 3 then
 						    Y[K], Y[K + 1], Y[K + 2] = h[1], h[2], h[N];
 						    continue;
-						elseif N == 5 then
+						elseif N == 4 then
 						    Y[K], Y[K + 1], Y[K + 2], Y[K + 3] = h[1], h[2], h[3], h[N];
 						    continue;
-						elseif N == 6 then
+						elseif N == 5 then
 						    Y[K], Y[K + 1], Y[K + 2], Y[K + 3], Y[K + 4] = h[1], h[2], h[3], h[4], h[N];
 						    continue;
 						end;
